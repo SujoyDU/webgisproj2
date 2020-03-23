@@ -86,6 +86,8 @@ for id,val in enumerate(data):
     outputQuery(val.rstrip().rsplit(','),id)
 #outputQuery()
 #psql -U your_username -d dbname -f single_table_data.sql
+#shp2pgsql -s 2263 "nypp" nypp | psql -h localhost -p 5432 -U postgres -d nyc
+
 
 
 
