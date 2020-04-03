@@ -26,7 +26,7 @@ $new_style-> outlinecolor->setRGB(255, 0, 0);
 
 $new_layer->setConnectionType(MS_POSTGIS);
 $new_layer->set("connection","user=postgres password=system dbname=nyc host=localhost");
-$data="geom from (select * from nypp_crash order by precinct) as foo using unique precinct using SRID=2263";
+$data="geom from (select * from nypp_crash) as foo using unique precinct using SRID=2263";
 $new_layer->set("data",$data) ;
 
 $oMap->owsdispatch($request);

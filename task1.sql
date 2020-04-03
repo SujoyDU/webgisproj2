@@ -31,13 +31,17 @@ group by n.gid;
 
 
 --size of area
-select gid, precinct, st_area(geom) area_sqft, ST_Area(geom) * 0.3048 ^ 2 area_sqml from nypp;
+select gid, precinct, st_area(geom) area_sqft,st_area(geom)*3.587*power(10,-8) area_sqml, shape_area from nypp;
+
+select * from nypp;
+
+
 
 --density of crashes
 create table nypp_crash as
 with t as
 (select n.gid, count(*) crash_total,n.precinct, n.geom,
-st_area(n.geom) area_sqft, st_area(n.geom) * 0.3048 ^ 2 area_sqml 
+st_area(n.geom) area_sqft, st_area(n.geom) * 3.587*power(10,-8) area_sqml 
 from nypp n, crashtest c
 where st_contains(n.geom,c.geom)
 group by n.gid)
