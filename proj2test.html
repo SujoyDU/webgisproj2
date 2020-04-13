@@ -16,6 +16,9 @@
 	    var gml_div='GMLTable';
 	    var wfs_div='WFSTable';
 	    var fid_seq=0;
+		var lon = -74.0;
+        var lat = 40.7;
+        var zoom = 10;
 
 		function init()
 		{
@@ -46,7 +49,8 @@
 			var l_wms = new OpenLayers.Layer.WMS( "NYC Police Precinct",
 						wms_url, {layers: layer_name,format: "image/png"} );
 			map.addLayer(l_wms);
-			map.zoomToExtent(map.maxExtent);
+			map.setCenter(new OpenLayers.LonLat(lon, lat), zoom);
+			//map.zoomToExtent(map.maxExtent);
 
 			map.events.register('click', map, function (e) {
 					OpenLayers.Util.getElement('nodeList').innerHTML = "Loading... please wait...";
@@ -102,10 +106,10 @@
 		</script>
   </head>
   <body onload="init();">
-    <h1>Proj2 template</h1>
+    <h1>Proj2</h1>
     <table>
     <tr>
-    	<td><div id="map" style="width:800px; height:600px"></div></td>
+    	<td><div id="map" style="width:900px; height:700px"></div></td>
     	<td>
 			<div style="width:200">
 				<div id="nodeList">

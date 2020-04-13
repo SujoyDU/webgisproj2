@@ -22,7 +22,7 @@ $new_layer->setMetaData("gml_featureid","precinct");
 $new_layer->setMetaData("wms_feature_info_mime_type","text/html");
 $new_class = ms_newClassObj($new_layer);
 $new_style = ms_newStyleObj($new_class);
-$new_style-> outlinecolor->setRGB(255, 0, 0);
+$new_style-> outlinecolor->setRGB(139, 0, 139);
 
 $new_layer->setConnectionType(MS_POSTGIS);
 $new_layer->set("connection","user=postgres password=system dbname=nyc host=localhost");

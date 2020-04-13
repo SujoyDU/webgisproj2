@@ -71,8 +71,31 @@ select t.gid, t.precinct,t.crash_total,t.area_sqml,
 t.crash_total/t.area_sqml crash_density, t.geom from t;
 
 
+/*
+What to use a the WFS services for
+A WFS allows uniform direct access to the features stored on a server. Use a WFS when they want to perform actions such as:
+
+query a dataset and retrieve the features
+find the feature definition (feature’s property names and types)
+add features to dataset
+delete feature from a dataset
+update feature in a dataset
+lock features to prevent modification
+
+A WFS returns data using Geography Markup Language (GML),
+ a specification for expressing GIS data using XML. 
+ GML can contain both geometry and attribute information. Because it is based on XML 
+WFS 
+A WMS allows for uniform rendering access to features stored on a server. Use a WMS when you want to perform actions such as:
+Producing Maps
+Very simple Querying of data
 
 
+When user clicks on a region of the map, WMS-GetFeatureInfo is called to get the region id. 
+Then WFS-GetFeature is called which retrieves the data in gml format based on the region id.
+infotemplate.html is used to show the data in the html file.
+Below is a snapshot of the request in the browser.
+*/
 
 
 
