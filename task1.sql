@@ -8,8 +8,25 @@ create table crashtest(
 	geom geometry(point,2263)
 );
 
+
+create table tri(
+	gid serial primary key,
+	triname varchar,
+	geom geometry(triangle,2263)
+);
+
+
+insert into tri values('1','A',ST_GeomFromText('TRIANGLE((40.767967747644725 -73.9783290529785, 40.75860640420429 -73.9237407351074, 40.78369703538845 -73.97266422753904, 40.767967747644725 -73.9783290529785))',2263))
+
+insert into tri values('2','B',ST_GeomFromText('TRIANGLE((40.77978920715366 -73.92294070696067, 40.75860640420429 -73.9237407351074, 40.78369703538845 -73.97266422753904, 40.77978920715366 -73.92294070696067))',2263))
+
+
+
+
 drop table crashtest
 
+INSERT INTO geotable ( the_geom, the_name )
+  VALUES ( ST_GeomFromText('POINT(-126.4 45.32)', 312), 'A Place');
 
 INSERT INTO crashtest (crash_year,accident_type,collision_type,weather_condition,light_condition,geom) 
 VALUES ('1989','1','9','1','1',ST_GeomFromText('POINT(1021044 243582)', 2263));

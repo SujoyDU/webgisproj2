@@ -10,6 +10,7 @@ create table crash(
 	geom geometry(point,2263)
 );
 
+
 /*
 downloaded data from http://134.74.112.65/WebGIS/nyccrash.txt will be uploaded to CRASH table.
 For this purpose, a python program is written to convert the data to sql-input format.
